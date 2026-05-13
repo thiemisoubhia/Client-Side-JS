@@ -66,12 +66,9 @@ function generateDescription(){
 // Function to update the character's description after changing age
 function updateDescription(){
     //concatenation
-    let description = character.name + ' is '+ character.age +' years old, loves '+ character.food +'and has the power of ' + character.power + '!';
+    let description = characterName + ' is '+ age +' years old, loves '+ favoriteFood +'and has the power of ' + specialPowers + '!';
     document.getElementById('characterDescription').textContent = description;
 }
 
 // Add event listeners for buttons using querySelector
-document.getElementById('generateButton').addEventListener('click', generateCharacter);
-document.getElementById('increaseAgeButton').addEventListener('click', increaseAge);
-document.getElementById('decreaseAgeButton').addEventListener('click', decreaseAge);
 
