@@ -60,10 +60,8 @@ function generateDescription(){
     character.power = specialPowers[Math.floor(Math.random() * specialPowers.length)];
     character.food = foods[Math.floor(Math.random() * foods.length)];
 
-    let description = character.name + ' is '+ character.age +' years old, loves '+ character.food +'and has the power of ' + character.power + '!';
-    ;
-
-    document.getElementById("characterDescription").textContent = description;
+    //calling to update description infos
+    updateDescription();
 }
 
 
@@ -74,7 +72,11 @@ function generateDescription(){
 
 
 // Function to update the character's description after changing age
-
+function updateDescription(){
+    //concatenation
+    let description = character.name + ' is '+ character.age +' years old, loves '+ character.food +'and has the power of ' + character.power + '!';
+    document.getElementById("characterDescription").textContent = description;
+}
 
 // Add event listeners for buttons using querySelector
 
