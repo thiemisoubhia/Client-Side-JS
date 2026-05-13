@@ -36,7 +36,7 @@ display the character's attributes in a creative and humorous way.
 // Declare and initialize variables
 let age = 0;
 let superhero = true;
-let specialPowers = [];
+let specialPowers = ['Invisibility', 'Strength', 'Intelligence', 'Super Speed'];
 let favoriteFood = "";
 
 
