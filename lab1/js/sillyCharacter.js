@@ -34,14 +34,38 @@ display the character's attributes in a creative and humorous way.
 */
 
 // Declare and initialize variables
+let characterName = "";
 let age = 0;
 let superhero = true;
 let specialPowers = ['Invisibility', 'Strength', 'Intelligence', 'Super Speed'];
 let favoriteFood = "";
 
 
+// character object
+let character = {
+    name: characterName,
+    power: specialPowers,
+    characterAge: age,
+    food: favoriteFood
+};
 
 // Function to generate a random character description
+function generateDescription(){
+    //arrays function scope
+    let names = ["Zorg", "Fluffy", "Captain Pickles", "Banana Man", "Sparkle Queen"];
+    let foods = ["Fries", "Cake", "Pizza", "Hamburguer", "Salad", "Cookies"];
+
+    //math random
+    character.name = names[Math.floor(Math.random() * names.length)];
+    character.power = specialPowers[Math.floor(Math.random() * specialPowers.length)];
+    character.food = foods[Math.floor(Math.random() * foods.length)];
+
+    let description = character.name + ' is '+ character.age +' years old, loves '+ character.food +'and has the power of ' + character.power + '!';
+    ;
+
+    document.getElementById("characterDescription").textContent = description;
+}
+
 
 
 // Functions to update character's age
