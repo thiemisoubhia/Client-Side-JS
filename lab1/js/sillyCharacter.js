@@ -36,19 +36,17 @@ display the character's attributes in a creative and humorous way.
 // Declare and initialize variables
 let characterName = '';
 let age = 0;
-let superhero = true;
+let isSuperhero = true;
 let specialPowers = ['Invisibility', 'Strength', 'Intelligence', 'Super Speed'];
 let favoriteFood = '';
 
 
 // Function to generate a random character description
 function generateDescription(){
-    //arrays function scope
-    let names = ['Zorg', 'Fluffy', 'Captain Pickles', 'Banana Man', 'Sparkle Queen'];
-    let foods = ['Fries', 'Cake', 'Pizza', 'Hamburguer', 'Salad', 'Cookies'];
+    //array function scope
+   let foods = ['Fries', 'Cake', 'Pizza', 'Hamburguer', 'Salad', 'Cookies'];
 
     //math random
-    characterName = names[Math.floor(Math.random() * names.length)];
     specialPowers = specialPowers[Math.floor(Math.random() * specialPowers.length)];
     favoriteFood = foods[Math.floor(Math.random() * foods.length)];
 
@@ -59,7 +57,18 @@ function generateDescription(){
 
 
 // Functions to update character's age
+function increaseAge() {
+    character.age++;
+    updateDescription();
+}
 
+// Decrease age
+function decreaseAge() {
+    if (character.age > 0) {
+        character.age--;
+    }
+    updateDescription();
+}
 
 
 
@@ -67,6 +76,11 @@ function generateDescription(){
 function updateDescription(){
     //concatenation
     let description = characterName + ' is '+ age +' years old, loves '+ favoriteFood +'and has the power of ' + specialPowers + '!';
+    if(isSuperhero){
+        description += "\n" + characterName + " is a super hero!!";
+    } else{
+        description += "\n" + characterName + " is not a super hero :(";
+    }
     document.getElementById('characterDescription').textContent = description;
 }
 
