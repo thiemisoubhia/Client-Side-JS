@@ -71,4 +71,7 @@ function updateDescription(){
 }
 
 // Add event listeners for buttons using querySelector
+document.getElementById('generateButton').addEventListener('click', generateCharacter);
+document.getElementById('increaseAgeButton').addEventListener('click', increaseAge);
+document.getElementById('decreaseAgeButton').addEventListener('click', decreaseAge);
 
