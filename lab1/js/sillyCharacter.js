@@ -51,6 +51,9 @@ function generateDescription(){
    power = specialPowers[Math.floor(Math.random() * specialPowers.length)];
    favoriteFood = foods[Math.floor(Math.random() * foods.length)];
 
+    //get the name
+   characterName = document.getElementById('nameInput').value;
+
     //calling to update description infos
     updateDescription();
 }
