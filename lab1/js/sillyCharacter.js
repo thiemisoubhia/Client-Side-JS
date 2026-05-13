@@ -76,7 +76,7 @@ function decreaseAge() {
 // Function to update the character's description after changing age
 function updateDescription(){
     //concatenation
-    let description = characterName + ' is '+ age +' years old, loves '+ favoriteFood +'and has the power of ' + power + '!';
+    let description = characterName + ' is '+ age +' years old, loves '+ favoriteFood +' and has the power of ' + power + '!';
     if(isSuperhero){
         description += "\n" + characterName + " is a super hero!!";
     } else{
