@@ -1,5 +1,5 @@
 /* 
-Project: "Silly Character Customizer"
+Project: 'Silly Character Customizer'
 Objective:
 You’ll create a small interactive webpage that generates a random, 
 funny character with attributes like name, age, favorite food, and special powers. 
@@ -34,31 +34,23 @@ display the character's attributes in a creative and humorous way.
 */
 
 // Declare and initialize variables
-let characterName = "";
+let characterName = '';
 let age = 0;
 let superhero = true;
 let specialPowers = ['Invisibility', 'Strength', 'Intelligence', 'Super Speed'];
-let favoriteFood = "";
+let favoriteFood = '';
 
-
-// character object
-let character = {
-    name: characterName,
-    power: specialPowers,
-    characterAge: age,
-    food: favoriteFood
-};
 
 // Function to generate a random character description
 function generateDescription(){
     //arrays function scope
-    let names = ["Zorg", "Fluffy", "Captain Pickles", "Banana Man", "Sparkle Queen"];
-    let foods = ["Fries", "Cake", "Pizza", "Hamburguer", "Salad", "Cookies"];
+    let names = ['Zorg', 'Fluffy', 'Captain Pickles', 'Banana Man', 'Sparkle Queen'];
+    let foods = ['Fries', 'Cake', 'Pizza', 'Hamburguer', 'Salad', 'Cookies'];
 
     //math random
-    character.name = names[Math.floor(Math.random() * names.length)];
-    character.power = specialPowers[Math.floor(Math.random() * specialPowers.length)];
-    character.food = foods[Math.floor(Math.random() * foods.length)];
+    characterName = names[Math.floor(Math.random() * names.length)];
+    specialPowers = specialPowers[Math.floor(Math.random() * specialPowers.length)];
+    favoriteFood = foods[Math.floor(Math.random() * foods.length)];
 
     //calling to update description infos
     updateDescription();
@@ -75,8 +67,11 @@ function generateDescription(){
 function updateDescription(){
     //concatenation
     let description = character.name + ' is '+ character.age +' years old, loves '+ character.food +'and has the power of ' + character.power + '!';
-    document.getElementById("characterDescription").textContent = description;
+    document.getElementById('characterDescription').textContent = description;
 }
 
 // Add event listeners for buttons using querySelector
+document.getElementById('generateButton').addEventListener('click', generateCharacter);
+document.getElementById('increaseAgeButton').addEventListener('click', increaseAge);
+document.getElementById('decreaseAgeButton').addEventListener('click', decreaseAge);
 
