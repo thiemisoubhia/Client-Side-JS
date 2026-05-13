@@ -37,8 +37,9 @@ display the character's attributes in a creative and humorous way.
 let characterName = '';
 let age = 0;
 let isSuperhero = true;
-let specialPowers = ['Invisibility', 'Strength', 'Intelligence', 'Super Speed'];
+const specialPowers = ['Invisibility', 'Strength', 'Intelligence', 'Super Speed'];
 let favoriteFood = '';
+let power;
 
 
 // Function to generate a random character description
@@ -47,8 +48,8 @@ function generateDescription(){
    let foods = ['Fries', 'Cake', 'Pizza', 'Hamburguer', 'Salad', 'Cookies'];
 
     //math random
-    specialPowers = specialPowers[Math.floor(Math.random() * specialPowers.length)];
-    favoriteFood = foods[Math.floor(Math.random() * foods.length)];
+   power = specialPowers[Math.floor(Math.random() * specialPowers.length)];
+   favoriteFood = foods[Math.floor(Math.random() * foods.length)];
 
     //calling to update description infos
     updateDescription();
@@ -58,14 +59,14 @@ function generateDescription(){
 
 // Functions to update character's age
 function increaseAge() {
-    character.age++;
+    age++;
     updateDescription();
 }
 
 // Decrease age
 function decreaseAge() {
-    if (character.age > 0) {
-        character.age--;
+    if (age > 0) {
+        age--;
     }
     updateDescription();
 }
@@ -75,7 +76,7 @@ function decreaseAge() {
 // Function to update the character's description after changing age
 function updateDescription(){
     //concatenation
-    let description = characterName + ' is '+ age +' years old, loves '+ favoriteFood +'and has the power of ' + specialPowers + '!';
+    let description = characterName + ' is '+ age +' years old, loves '+ favoriteFood +'and has the power of ' + power + '!';
     if(isSuperhero){
         description += "\n" + characterName + " is a super hero!!";
     } else{
@@ -85,7 +86,7 @@ function updateDescription(){
 }
 
 // Add event listeners for buttons using querySelector
-document.getElementById('generateButton').addEventListener('click', generateCharacter);
+document.getElementById('generateButton').addEventListener('click', generateDescription);
 document.getElementById('increaseAgeButton').addEventListener('click', increaseAge);
 document.getElementById('decreaseAgeButton').addEventListener('click', decreaseAge);
 
