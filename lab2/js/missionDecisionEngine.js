@@ -1,3 +1,6 @@
+//Thiemi Soubhia Doi
+//200645138
+
 //variables
 let health = 65;
 let ammo = 8;
@@ -25,7 +28,7 @@ else if(ammo < 5 || shield === false){
 
 //MID MISSION STATUS
 //missionProgress is between 1 and 70
-else if(missionProgress > 1 && missionProgress < 70){
+else if(missionProgress >= 1 && missionProgress <= 70){
     //"Mission In Progress"
     status.textContent = "Mission In Progress";
 }
