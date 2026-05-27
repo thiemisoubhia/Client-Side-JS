@@ -23,3 +23,9 @@ if(missionProgress > 1 || missionProgress < 70){
     //"Mission In Progress"
 }
 
+//HIGH PROGRESS STATUS
+//missionProgress > 70 AND enemyNearby is false
+if(missionProgress > 70 && enemyNearby === false){
+    //"Approaching Mission Completion"
+}
+
