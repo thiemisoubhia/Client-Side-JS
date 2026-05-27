@@ -17,3 +17,9 @@ if(ammo < 5 || shield === false){
     //"Warning: Low Resources"
 }
 
+//MID MISSION STATUS
+//missionProgress is between 1 and 70
+if(missionProgress > 1 || missionProgress < 70){
+    //"Mission In Progress"
+}
+
