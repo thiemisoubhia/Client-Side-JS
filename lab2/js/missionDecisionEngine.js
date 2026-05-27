@@ -29,3 +29,8 @@ if(missionProgress > 70 && enemyNearby === false){
     //"Approaching Mission Completion"
 }
 
+//MISSION COMPLETE
+//missionProgress === 100
+if(missionProgress === 100){
+    //"Mission Complete Successfully"
+}
