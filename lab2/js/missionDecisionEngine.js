@@ -4,6 +4,10 @@ let ammo = 8;
 let shield = true;
 let missionProgress = 40;
 let enemyNearby = true;
+
+
+//select element
+let status = document.querySelector("#status");
  
 //CRITICAL FAILURE (Highest Priority)
 //health < 30 AND enemyNearby is true
@@ -19,7 +23,7 @@ else if(ammo < 5 || shield === false){
 
 //MID MISSION STATUS
 //missionProgress is between 1 and 70
-else if(missionProgress > 1 || missionProgress < 70){
+else if(missionProgress > 1 && missionProgress < 70){
     //"Mission In Progress"
 }
 
