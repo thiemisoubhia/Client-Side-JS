@@ -4,11 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mission Decision Engine</title>
-     <script src="js/missionDecisionEngine.js" defer></script>
-     <link rel="stylesheet" href="css/style.css">
 
+    <script src="js/missionDecisionEngine.js" defer></script>
+    <link rel="stylesheet" href="css/style.css">
 </head>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mission Decision Engine</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/missionDecisionEngine.js" defer></script>
+</head>
+
 <body>
-     <h1 id="status"></h1>
+
+<div class="container">
+    <h1 id="status">Configure your mission</h1>
+
+    <div class="buttons">
+        <button id="agentBtn">Agent Type</button>
+        <button id="locationBtn">Mission Location</button>
+        <button id="weaponBtn">Weapon Loadout</button>
+        <button id="objectiveBtn">Mission Objective</button>
+        <button id="riskBtn">Risk Level</button>
+
+        <button id="launchBtn" class="launch">LAUNCH MISSION</button>
+        <button id="resetBtn">RESET</button>
+        <button id="randomBtn">RANDOM MISSION</button>
+    </div>
+</div>
+
 </body>
 </html>
