@@ -84,17 +84,32 @@ function funRisk() {
     updateStatus();
 }
 
+//function to generate the mission
 function generateMission() {
+    //verify if any informations is missing before lauch the mission
     if (!agent || !loc || !weapon || !objective || !risk) {
         document.getElementById("status").textContent =
             "WARNING: Complete all mission parameters before launch!";
         return;
     }
 
+    //launching
     document.getElementById("status").innerHTML =
         `MISSION BRIEFING:<br>
         Agent ${agent} assigned to ${loc}.<br>
         Objective: ${objective}.<br>
         Loadout: ${weapon}.<br>
         Risk Level: ${risk}.`;
+}
+
+//random
+function randomMission() {
+    //using math to random
+    agent = agents[Math.floor(Math.random() * agents.length)];
+    location = locations[Math.floor(Math.random() * locations.length)];
+    weapon = weapons[Math.floor(Math.random() * weapons.length)];
+    objective = objectives[Math.floor(Math.random() * objectives.length)];
+    risk = risks[Math.floor(Math.random() * risks.length)];
+
+    updateStatus();
 }
