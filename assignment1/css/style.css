@@ -41,7 +41,7 @@ button {
 }
 
 button:hover{
-    background-color: rgb(73, 0, 112);
+    border: 3px solid rgb(73, 0, 112);
 }
 
 h1{

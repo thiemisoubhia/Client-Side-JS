@@ -47,6 +47,10 @@ function resetMission() {
 
 //update to show in the html
 function updateStatus() {
-    document.getElementById("status").textContent =
-        'Agent: ${agent} | Location: ${location} | Weapon: ${weapon} | Objective: ${objective} | Risk: ${risk"}';
+    document.getElementById("status").innerHTML =
+    `Agent: ${agent} <br>
+     Location: ${location} <br>
+     Weapon: ${weapon} <br>
+     Objective: ${objective} <br>
+     Risk: ${risk}`;
 }
