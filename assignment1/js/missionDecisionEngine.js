@@ -40,4 +40,13 @@ function resetMission() {
     weapon = null;
     objective = null;
     risk = null;
+
+    //call to change the exhibition informations
+    updateStatus();
+}
+
+//update to show in the html
+function updateStatus() {
+    document.getElementById("status").textContent =
+        'Agent: ${agent || "?"} | Location: ${location || "?"} | Weapon: ${weapon || "?"} | Objective: ${objective || "?"} | Risk: ${risk || "?"}';
 }
