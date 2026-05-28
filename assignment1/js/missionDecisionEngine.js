@@ -12,7 +12,7 @@ const risks = ["Low", "Medium", "High", "Extreme"];
 document.getElementById("agentBtn").addEventListener("click", funAgent);
 document.getElementById("locationBtn").addEventListener("click", funAgent);
 document.getElementById("weaponBtn").addEventListener("click", funWeapon);
-document.getElementById("objectiveBtn").addEventListener("click", funObject);
+document.getElementById("objectiveBtn").addEventListener("click", funObjective);
 document.getElementById("riskBtn").addEventListener("click", funRisk);
 
 //other buttons
@@ -53,4 +53,30 @@ function updateStatus() {
      Weapon: ${weapon} <br>
      Objective: ${objective} <br>
      Risk: ${risk}`;
+}
+
+//function to each information
+function funAgent() {
+    agent = nextValue(agents, agent);
+    updateStatus();
+}
+
+function funLocation() {
+    location = nextValue(locations, location);
+    updateStatus();
+}
+
+function funWeapon() {
+    weapon = nextValue(weapons, weapon);
+    updateStatus();
+}
+
+function funObjective() {
+    objective = nextValue(objectives, objective);
+    updateStatus();
+}
+
+function funRisk() {
+    risk = nextValue(risks, risk);
+    updateStatus();
 }
