@@ -106,7 +106,7 @@ function generateMission() {
 function randomMission() {
     //using math to random
     agent = agents[Math.floor(Math.random() * agents.length)];
-    location = locations[Math.floor(Math.random() * locations.length)];
+    loc = locations[Math.floor(Math.random() * locations.length)];
     weapon = weapons[Math.floor(Math.random() * weapons.length)];
     objective = objectives[Math.floor(Math.random() * objectives.length)];
     risk = risks[Math.floor(Math.random() * risks.length)];
