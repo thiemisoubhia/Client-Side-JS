@@ -119,3 +119,8 @@ class Espresso extends Coffee {
 // two objects
 let regularEspresso = new Espresso("small", false, 2);
 let decafEspresso = new Espresso("medium", true, 1);
+
+// serveIt() method
+regularEspresso.serveIt();
+decafEspresso.serveIt();
+
