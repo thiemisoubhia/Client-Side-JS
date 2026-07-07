@@ -113,7 +113,7 @@ class Espresso extends Coffee {
     // description method
     espressoDesc() {
         //concatenate
-        return "A "+ this.size + "Espresso with" + this.shots+ " shots. Decaf: " + this.isDecaf;
+        return "A "+ this.size + "Espresso with " + this.shots+ " shots. Decaf: " + this.isDecaf;
     }
 }
 
