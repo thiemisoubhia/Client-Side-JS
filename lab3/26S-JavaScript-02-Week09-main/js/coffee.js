@@ -112,6 +112,7 @@ class Espresso extends Coffee {
 
     // description method
     espressoDesc() {
+        //concatenate
         return "A "+ this.size + "Espresso with" + this.shots+ " shots. Decaf: " + this.isDecaf;
     }
 }
@@ -124,3 +125,9 @@ let decafEspresso = new Espresso("medium", true, 1);
 regularEspresso.serveIt();
 decafEspresso.serveIt();
 
+// custom description
+let espressoDescription1 = document.createElement("p");
+espressoDescription1.textContent = regularEspresso.espressoDesc();
+
+let espressoDescription2 = document.createElement("p");
+espressoDescription2.textContent = decafEspresso.espressoDesc();
