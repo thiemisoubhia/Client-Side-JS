@@ -113,7 +113,7 @@ class Espresso extends Coffee {
     // description method
     espressoDesc() {
         //concatenate
-        return "A "+ this.size + "Espresso with " + this.shots+ " shots. Decaf: " + this.isDecaf;
+        return "A "+ this.size + " Espresso with " + this.shots+ " shots. Decaf: " + this.isDecaf;
     }
 }
 
@@ -134,3 +134,29 @@ espressoDesc2.textContent = decafEspresso.espressoDesc();
 
 output.appendChild(espressoDesc1);
 output.appendChild(espressoDesc2);
+
+//Take it further
+class SpecialEspresso extends Espresso {
+
+    flavour;
+
+    constructor(size, isDecaf, shots, flavour) {
+        super(size, isDecaf, shots);
+        this.flavour = flavour;
+    }
+
+    flavourDesc() {
+        return "A "+ this.flavour +" Espresso with " + this.shots + " shots.";
+    }
+}
+
+// new object SpecialEspresso
+let caramelEspresso = new SpecialEspresso("large",false,3,"caramel");
+
+// confirm access
+caramelEspresso.serveIt();
+
+let caramelText = document.createElement("p");
+caramelText.textContent = caramelEspresso.flavourDesc();
+
+output.appendChild(caramelText);
