@@ -126,8 +126,11 @@ regularEspresso.serveIt();
 decafEspresso.serveIt();
 
 // custom description
-let espressoDescription1 = document.createElement("p");
-espressoDescription1.textContent = regularEspresso.espressoDesc();
+let espressoDesc1 = document.createElement("p");
+espressoDesc1.textContent = regularEspresso.espressoDesc();
 
-let espressoDescription2 = document.createElement("p");
-espressoDescription2.textContent = decafEspresso.espressoDesc();
+let espressoDesc2 = document.createElement("p");
+espressoDesc2.textContent = decafEspresso.espressoDesc();
+
+output.appendChild(espressoDesc1);
+output.appendChild(espressoDesc2);
