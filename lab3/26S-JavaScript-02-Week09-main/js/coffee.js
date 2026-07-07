@@ -99,7 +99,7 @@ let priyanshLatte = new Latte("small", false, "2%");
 /*LAB 03*/
 //subclass
 class Espresso extends Coffee {
-    
+    //unique property
     shots;
 
     //constructor
@@ -115,3 +115,7 @@ class Espresso extends Coffee {
         return "A "+ this.size + "Espresso with" + this.shots+ " shots. Decaf: " + this.isDecaf;
     }
 }
+
+// two objects
+let regularEspresso = new Espresso("small", false, 2);
+let decafEspresso = new Espresso("medium", true, 1);
