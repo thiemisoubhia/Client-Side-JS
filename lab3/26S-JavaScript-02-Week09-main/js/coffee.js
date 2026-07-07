@@ -94,3 +94,24 @@ let priyanshLatte = new Latte("small", false, "2%");
 // This page inspired by and adapted from https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Classes_in_JavaScript
 
 // Special thanks to https://openclipart.org/detail/293550/coffee-to-go for the very cool coffee cup SVG
+
+
+/*LAB 03*/
+//subclass
+class Espresso extends Coffee {
+    
+    shots;
+
+    //constructor
+     constructor(size, isDecaf, shots) {
+
+        //super class
+        super(size, isDecaf);
+        this.shots = shots;
+    }
+
+    // description method
+    espressoDesc() {
+        return "A "+ this.size + "Espresso with" + this.shots+ " shots. Decaf: " + this.isDecaf;
+    }
+}
