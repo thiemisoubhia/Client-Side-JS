@@ -37,3 +37,42 @@ class Pizza {
         return description;
     }
 }
+
+document.getElementById("pizzaForm").addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    //validate form
+    if (!this.checkValidity()) {
+        this.reportValidity();
+        return;
+    }
+
+    const customerName = document.getElementById("customerName").value;
+    const email = document.getElementById("email").value;
+    const phone = document.getElementById("phone").value;
+    const address = document.getElementById("address").value;
+
+
+    //pizza infos
+    const size = document.getElementById("pizzaSize").value;
+
+
+    const crust = document.querySelector(
+        'input[name="crust"]:checked'
+    ).value;
+
+
+    const toppings = Array.from(
+        document.querySelectorAll('input[name="toppings"]:checked')
+    ).map(item => item.value);
+
+
+    const instructions = document.getElementById("instructions").value;
+
+
+
+    //Pizza object
+    const pizzaOrder = new Pizza( customerName, email, phone, address, size, crust, toppings, instructions);
+
+});
