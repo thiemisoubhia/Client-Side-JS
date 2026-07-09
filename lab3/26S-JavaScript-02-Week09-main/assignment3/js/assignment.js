@@ -21,16 +21,15 @@ class Pizza {
 
     //pizza description
     getDescription() {
-        let description = `Customer Information:
-        Name: ${this.customerName}
-        Email: ${this.email}
-        Phone: ${this.phone}
-        Address: ${this.address}
-
-        Pizza Order:
-        Size: ${this.size}
-        Crust: ${this.crust}
-        Toppings: ${this.toppings.join(", ")}
+        let description = `Customer Information:<br>
+        Name: ${this.customerName}<br>
+        Email: ${this.email}<br>
+        Phone: ${this.phone}<br>
+        Address: ${this.address}<br><br>
+        Pizza Order:<br>
+        Size: ${this.size}<br>
+        Crust: ${this.crust}<br>
+        Toppings: ${this.toppings.join(", ")}<br>
         Instructions: ${this.instructions || "None"}
         `;
 
@@ -76,6 +75,6 @@ document.getElementById("pizzaForm").addEventListener("submit", function (event)
     const pizzaOrder = new Pizza(customerName, email, phone, address, size, crust, toppings, instructions);
 
     //display description
-    document.getElementById("orderResult").textContent = pizzaOrder.getDescription();
+    document.getElementById("orderResult").innerHTML = pizzaOrder.getDescription();
 
 });
