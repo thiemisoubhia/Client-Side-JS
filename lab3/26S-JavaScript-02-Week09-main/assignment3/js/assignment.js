@@ -21,7 +21,7 @@ class Pizza {
 
     //pizza description
     getDescription() {
-        let description =  `Customer Information:
+        let description = `Customer Information:
         Name: ${this.customerName}
         Email: ${this.email}
         Phone: ${this.phone}
@@ -38,7 +38,7 @@ class Pizza {
     }
 }
 
-document.getElementById("pizzaForm").addEventListener("submit", function(event) {
+document.getElementById("pizzaForm").addEventListener("submit", function (event) {
 
     event.preventDefault();
 
@@ -73,6 +73,9 @@ document.getElementById("pizzaForm").addEventListener("submit", function(event) 
 
 
     //Pizza object
-    const pizzaOrder = new Pizza( customerName, email, phone, address, size, crust, toppings, instructions);
+    const pizzaOrder = new Pizza(customerName, email, phone, address, size, crust, toppings, instructions);
+
+    //display description
+    document.getElementById("orderResult").textContent = pizzaOrder.getDescription();
 
 });

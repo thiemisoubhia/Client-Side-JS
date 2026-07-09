@@ -64,3 +64,7 @@ button:hover{
     color: black;
     background-color: #e3e3e3;
 }
+
+form + div h2 {
+    margin-top: 50px;
+}
