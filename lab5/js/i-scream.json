@@ -32,7 +32,7 @@
         "Whipped Cream",
         "Sugar"
       ],
-      "image": "images/ice-cream-xtra1.svg"
+      "image": "https://thiemisoubhia.github.io/Client-Side-JS/lab5/images/ice-cream-xtra1.svg"
     },
 
 {
@@ -45,6 +45,6 @@
         "Vanilla Base",
         "Cream"
       ],
-      "image": "images/ice-cream-xtra2.svg"
+      "image": "https://thiemisoubhia.github.io/Client-Side-JS/lab5/images/ice-cream-xtra2.svg"
     }]
 }
