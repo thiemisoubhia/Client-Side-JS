@@ -21,5 +21,17 @@
         "type": "Icecream",
         "ingredients": ["Strawberry Syrup", "Strawberry Chunks", "Sprinkle", "Chocolate Base"],
         "image": "https://priyansht.github.io/26S-JavaScript-02-Week10/images/strawberry-sprinkle.svg"
+        },
+    {
+      "name": "Cookies & Cream",
+      "calories": 260,
+      "type": "Icecream",
+      "ingredients": [
+        "Vanilla Base",
+        "Chocolate Cookie Pieces",
+        "Whipped Cream",
+        "Sugar"
+      ],
+      "image": "images/ice-cream-xtra1.svg"
     }]
 }
