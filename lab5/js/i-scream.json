@@ -33,5 +33,18 @@
         "Sugar"
       ],
       "image": "images/ice-cream-xtra1.svg"
+    },
+
+{
+      "name": "Mint Chocolate Chip",
+      "calories": 230,
+      "type": "Icecream",
+      "ingredients": [
+        "Mint Extract",
+        "Chocolate Chips",
+        "Vanilla Base",
+        "Cream"
+      ],
+      "image": "images/ice-cream-xtra2.svg"
     }]
 }
