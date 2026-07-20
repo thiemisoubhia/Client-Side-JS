@@ -14,5 +14,8 @@ const searchForm = document.querySelector("#search");
 const artistInput = document.querySelector("#artistName");
 const artist = document.querySelector("#artist");
 const myName = document.querySelector("#name");
-const myID = document.querySelector("#studentId");
+const myID = document.querySelector("#studentID");
 
+// Add my infos in the html
+myName.textContent = name;
+myID.textContent = studentID;
