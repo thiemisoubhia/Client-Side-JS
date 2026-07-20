@@ -5,7 +5,7 @@ const key = "85223393794463e1b9ca9841d03246fc";
 //API url
 const url = "http://ws.audioscrobbler.com/2.0/";
 
-// My information
+//my information
 const name  = "Thiemi Soubhia";
 const studentID = "200645138";
 
@@ -16,21 +16,21 @@ const results = document.querySelector("#artist");
 const myName = document.querySelector("#name");
 const myID = document.querySelector("#studentID");
 
-// Add my infos in the html
+//add my infos in the html
 myName.textContent = name;
 myID.textContent = studentID;
 
 
-// Listen for the form submission
+//Listen for the form submission
 searchForm.addEventListener("submit", function (event) {
 
-    // Dont refresh the page
+    //Dont refresh the page
     event.preventDefault();
 
-    // Get artist name
+    //get artist name
     const artistName = artistInput.value.trim();
 
-    // If the input is empty
+    //If the input is empty
     if (artistName === "") {
         alert("Enter the artist name...");
         return;
@@ -71,17 +71,17 @@ async function searchArtist(artistName) {
     // Get the artist name
     const artistNameFromAPI = data.toptracks["@attr"].artist;
 
-    // Get the artist image from the first track
-    const artistImage = tracks[0].image.find(image => image.size === "extralarge")?.["#text"];
+    //get artist listeners
+    const totalListeners = Number(tracks[0].listeners).toLocaleString();
 
     // Create the artist info
     let html = `
 
         <div class="artistCard">
 
-            <img src="${artistImage}" alt="${artistNameFromAPI}" >
-
             <h2>${artistNameFromAPI}</h2>
+            <p><strong>Top Track:</strong> ${tracks[0].name}</p>
+            <p><strong>Listeners:</strong> ${totalListeners}</p>
 
         </div>
 
