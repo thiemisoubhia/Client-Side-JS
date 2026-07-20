@@ -62,3 +62,13 @@ button {
     cursor: pointer;
     font-weight: bold;
 }
+
+
+/* Footer */
+footer{
+    margin-top: 2rem;
+     display: flex;
+    justify-content: center;
+}
+
+
