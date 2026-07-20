@@ -3,10 +3,10 @@
 const key = "85223393794463e1b9ca9841d03246fc";
 
 //API url
-const url = "http://ws.audioscrobbler.com/2.0/";
+const url = "https://ws.audioscrobbler.com/2.0/";
 
 //my information
-const name  = "Thiemi Soubhia";
+const name = "Thiemi Soubhia";
 const studentID = "200645138";
 
 // HTML elements
@@ -35,7 +35,7 @@ searchForm.addEventListener("submit", function (event) {
         alert("Enter the artist name...");
         return;
     }
-    else{
+    else {
         searchArtist(artistName);
     }
 
@@ -48,38 +48,47 @@ async function searchArtist(artistName) {
 
     // API request 
     const requestUrl = `${url}?method=artist.getTopTracks` +
-    `&artist=${encodeURIComponent(artistName)}` +
-    `&api_key=${key}` + `&format=json` + `&limit=5`;
+        `&artist=${encodeURIComponent(artistName)}` +
+        `&api_key=${key}` + `&format=json` + `&limit=5`;
 
     try {
-    // Send the request
-    const response = await fetch(requestUrl);
- // Convert to JSON
-    const data = await response.json();
+        // Send the request
+        const response = await fetch(requestUrl);
+        // Convert to JSON
+        const data = await response.json();
 
-    // Get the tracks from the response
-    const tracks = data.toptracks?.track;
+        // Get the tracks from the response
+        const tracks = data.toptracks?.track;
 
-    // Check if the artist was found
-    if (!tracks || tracks.length === 0) {
+        // Check if the artist was found
+        if (!tracks || tracks.length === 0) {
 
-        results.innerHTML = "<p>Artist not found... Try another...</p>";
+            results.innerHTML = "<p>Artist not found... Try another...</p>";
 
-        return;
-    }
+            return;
+        }
 
-    // Get the artist name
-    const artistNameFromAPI = data.toptracks["@attr"].artist;
+        // Get the artist name
+        const artistNameFromAPI = data.toptracks["@attr"].artist;
 
-    //get artist listeners
-    const totalListeners = Number(tracks[0].listeners).toLocaleString();
+        // Get artist information
+        const artistRequest = `${url}?method=artist.getInfo` +
+            `&artist=${encodeURIComponent(artistName)}` +
+            `&api_key=${key}` +
+            `&format=json`;
 
+        const artistResponse = await fetch(artistRequest);
+        const artistData = await artistResponse.json();
 
-    // Create the artist info
-    let html = `
+        const artistInfo = artistData.artist;
+
+        //get artist listeners
+        const totalListeners = Number(tracks[0].listeners).toLocaleString();
+
+        // Create the artist info
+        let html = `
 
         <div class="artistCard">
-
             <h2>${artistNameFromAPI}</h2>
             <p><strong>Top Track:</strong> ${tracks[0].name}</p>
             <p><strong>Listeners:</strong> ${totalListeners}</p>
@@ -92,40 +101,41 @@ async function searchArtist(artistName) {
         <div class="tracks"> `;
 
 
-    //image
-    const image = track.image?.find(function (img) {
-        return img.size === "large";
-    })?.["#text"];
 
-    // Add each track to the page
-    tracks.forEach(function (track, index) {
+        // Add each track to the page
+        tracks.forEach(function (track, index) {
 
-        html += `
+            const percentage =
+                (Number(track.listeners) / Number(tracks[0].listeners)) * 100;
+
+            html += `
 
             <div class="trackCard">
 
-                <img src="${image}"alt="${track.name} album cover">
                 <h3> ${index + 1}. ${track.name} </h3>
 
                 <p> ${Number(track.listeners).toLocaleString()} listeners</p>
 
+                <div class="bar">
+                    <div class="progress" style="width:${percentage}%"></div>
+                </div>
             </div>
 
         `;
 
-    });
+        });
 
 
-    // Close the tracks container
-    html += "</div>";
+        // Close the tracks container
+        html += "</div>";
 
 
-    // Add everything to the page
-    results.innerHTML = html;
+        // Add everything to the page
+        results.innerHTML = html;
 
 
     }
-    catch(error){
+    catch (error) {
         console.error(error);
         results.innerHTML = "<p>Something went wrong. Please try again.</p>";
     }
