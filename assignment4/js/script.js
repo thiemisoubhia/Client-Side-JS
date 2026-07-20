@@ -36,7 +36,31 @@ searchForm.addEventListener("submit", function (event) {
         return;
     }
     else{
+        searchArtist(artistName);
     }
 
 
 });
+
+
+// Get music data
+async function searchArtist(artistName) {
+
+    // API request 
+    const url = `${url}?method=artist.getTopTracks` +
+    `&artist=${encodeURIComponent(artistName)}` +
+    `&api_key=${key}` + `&format=json` + `&limit=5`;
+
+    try {
+    // Send the request
+    const response = await fetch(url);
+
+
+    }
+    catch(error){
+    console.error(error);
+    artist.innerHTML = "<p>Something went wrong. Please try again.</p>";
+    }
+
+
+}
