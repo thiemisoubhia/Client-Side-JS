@@ -19,3 +19,24 @@ const myID = document.querySelector("#studentID");
 // Add my infos in the html
 myName.textContent = name;
 myID.textContent = studentID;
+
+
+// Listen for the form submission
+searchForm.addEventListener("submit", function (event) {
+
+    // Dont refresh the page
+    event.preventDefault();
+
+    // Get artist name
+    const artistName = artistInput.value.trim();
+
+    // If the input is empty
+    if (artistName === "") {
+        alert("Enter the artist name...");
+        return;
+    }
+    else{
+    }
+
+
+});
