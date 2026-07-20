@@ -54,6 +54,27 @@ async function searchArtist(artistName) {
     try {
     // Send the request
     const response = await fetch(url);
+ // Convert to JSON
+    const data = await response.json();
+
+    // Get the tracks from the response
+    const tracks = data.toptracks?.track;
+
+    // Check if the artist was found
+    if (!tracks || tracks.length === 0) {
+
+        results.innerHTML = "<p>Artist not found... Try another...</p>";
+
+        return;
+    }
+
+    // Get the artist name
+    const artistNameFromAPI = data.toptracks["@attr"].artist;
+
+    // Get the artist image from the first track
+    const artistImage = tracks[0].image.find(image => image.size === "extralarge")?.["#text"];
+
+
 
 
     }
