@@ -77,7 +77,7 @@ async function searchArtist(artistName) {
     // Create the artist info
     let html = `
 
-        <div class="artist-card">
+        <div class="artistCard">
 
             <img src="${artistImage}" alt="${artistNameFromAPI}" >
 
@@ -94,7 +94,7 @@ async function searchArtist(artistName) {
 
         html += `
 
-            <div class="track-card">
+            <div class="trackCard">
 
                 <h3> ${index + 1}. ${track.name} </h3>
 

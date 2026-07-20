@@ -81,3 +81,60 @@ footer {
 .infos p {
     margin: 0;
 }
+
+
+/* Artist card */
+.artistCard {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.artistCard img {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+
+.artistCard h2 {
+    margin: 0;
+    color: #333;
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+/* Track cards */
+.trackCard {
+    max-width: 500px;
+    margin: 15px auto;
+    padding: 15px;
+    background: #f8f8f8;
+    border-left: 5px solid #f60d89;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.trackCard h3 {
+    margin: 0 0 8px;
+    color: #222;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.trackCard p {
+    margin: 0;
+    color: #5f5e5e;
+    font-size: 0.95rem;
+}
+
+h2{
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
