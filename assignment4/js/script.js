@@ -12,7 +12,7 @@ const studentID = "200645138";
 // HTML elements
 const searchForm = document.querySelector("#search");
 const artistInput = document.querySelector("#artistName");
-const artist = document.querySelector("#artist");
+const results = document.querySelector("#artist");
 const myName = document.querySelector("#name");
 const myID = document.querySelector("#studentID");
 
@@ -47,13 +47,13 @@ searchForm.addEventListener("submit", function (event) {
 async function searchArtist(artistName) {
 
     // API request 
-    const url = `${url}?method=artist.getTopTracks` +
+    const requestUrl = `${url}?method=artist.getTopTracks` +
     `&artist=${encodeURIComponent(artistName)}` +
     `&api_key=${key}` + `&format=json` + `&limit=5`;
 
     try {
     // Send the request
-    const response = await fetch(url);
+    const response = await fetch(requestUrl);
  // Convert to JSON
     const data = await response.json();
 
@@ -74,7 +74,45 @@ async function searchArtist(artistName) {
     // Get the artist image from the first track
     const artistImage = tracks[0].image.find(image => image.size === "extralarge")?.["#text"];
 
+    // Create the artist info
+    let html = `
 
+        <div class="artist-card">
+
+            <img src="${artistImage}" alt="${artistNameFromAPI}" >
+
+            <h2>${artistNameFromAPI}</h2>
+
+        </div>
+
+        <h2>Top 5 Tracks</h2>
+
+        <div class="tracks"> `;
+
+    // Add each track to the page
+    tracks.forEach(function (track, index) {
+
+        html += `
+
+            <div class="track-card">
+
+                <h3> ${index + 1}. ${track.name} </h3>
+
+                <p> ${Number(track.listeners).toLocaleString()} listeners</p>
+
+            </div>
+
+        `;
+
+    });
+
+
+    // Close the tracks container
+    html += "</div>";
+
+
+    // Add everything to the page
+    results.innerHTML = html;
 
 
     }
