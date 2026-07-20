@@ -74,6 +74,7 @@ async function searchArtist(artistName) {
     //get artist listeners
     const totalListeners = Number(tracks[0].listeners).toLocaleString();
 
+
     // Create the artist info
     let html = `
 
@@ -82,12 +83,19 @@ async function searchArtist(artistName) {
             <h2>${artistNameFromAPI}</h2>
             <p><strong>Top Track:</strong> ${tracks[0].name}</p>
             <p><strong>Listeners:</strong> ${totalListeners}</p>
+            <p><strong>Playcount:</strong> ${Number(tracks[0].playcount).toLocaleString()}</p>
 
         </div>
 
         <h2>Top 5 Tracks</h2>
 
         <div class="tracks"> `;
+
+
+    //image
+    const image = track.image?.find(function (img) {
+        return img.size === "large";
+    })?.["#text"];
 
     // Add each track to the page
     tracks.forEach(function (track, index) {
@@ -96,6 +104,7 @@ async function searchArtist(artistName) {
 
             <div class="trackCard">
 
+                <img src="${image}"alt="${track.name} album cover">
                 <h3> ${index + 1}. ${track.name} </h3>
 
                 <p> ${Number(track.listeners).toLocaleString()} listeners</p>
@@ -117,8 +126,8 @@ async function searchArtist(artistName) {
 
     }
     catch(error){
-    console.error(error);
-    artist.innerHTML = "<p>Something went wrong. Please try again.</p>";
+        console.error(error);
+        results.innerHTML = "<p>Something went wrong. Please try again.</p>";
     }
 
 
