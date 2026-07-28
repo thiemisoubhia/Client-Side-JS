@@ -15,7 +15,7 @@
 // STEP 2: Set the base URL for the Claude API
 const baseURL = "https://georgian.polaristechservices.com";
 // STEP 3: Set your student API key (student ID)
-const studentApiKey = "200630733";
+const studentApiKey = "200645138";
 // STEP 4: Set the maximum tokens for API requests
 const maxTokens = 1000;
 
@@ -24,6 +24,13 @@ const userMessage = document.querySelector("#user-message");
 const sendMessageBtn = document.querySelector("#send-message");
 const checkUsageBtn = document.querySelector("#check-usage");
 const results = document.querySelector("#results");
+
+/*LAB elements references*/
+const messageSection = document.querySelector("#message-section");
+const followUpInput = document.querySelector("#message");
+const sendFollowUpBtn = document.querySelector("#send");
+
+let conversationHistory = [];
 
 /* STEP 6: Add event listeners for all interactive elements */
 // STEP 6a: Send message button
@@ -113,6 +120,7 @@ function displayMessage(json){
 // - Add the user's message to conversationHistory
 // - Send the entire conversation to the API instead of just the current message
 // - Add Claude's response to conversationHistory
+
 
 /* LAB STEP 2: Update the displayResult function for chat-like appearance */
 // - Show messages in a conversation format
