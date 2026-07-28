@@ -2,26 +2,40 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8" />
-	<title>Getting Data From a Server | COMP1073 Client-Side JavaScript</title>
+	<title>Claude AI API Integration | COMP1073 Client-Side JavaScript</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<link href="css/normalize.css" rel="stylesheet" />
 	<link href="css/styles.css" rel="stylesheet" />
-	<script src="js/poetry.js" defer></script>
+	<script src="js/claude-api.js" defer></script>
 </head>
 
 <body>
-	<h1>Getting Data From a Server</h1>
+	<h1>Claude AI API Integration</h1>
+	
 	<form>
-		<label for="verse-choose">Choose a very cool verse</label>
-		<select id="verse-choose" name="verse-choose">
-			<option value="verse1" selected>Verse 1</option>
-			<option value="verse2">Verse 2</option>
-			<option value="verse3">Verse 3</option>
-			<option value="verse4">Verse 4</option>
-		</select>
+		<label for="user-message">Your Message:</label>
+		<textarea id="user-message" placeholder="Type your message to Claude..." rows="4"></textarea>
+		<button type="button" id="send-message">Send Message</button>
+		<button type="button" id="check-usage">Check Usage</button>
 	</form>
-	<h2>The Conqueror Worm, <em>Edgar Allen Poe, 1843</em></h2>
-	<pre>
-	</pre>
+	
+	<section id="results"></section>
+
+	<!-- Proceed to js/claude-api.js for the remainder of the lesson -->
+	 <section id="message-section" hidden>
+	<label>
+		Follow-up Message:
+	</label>
+	<textarea 
+		id="message" 
+		placeholder="Ask Claude a follow-up question..." 
+		rows="4">
+	</textarea>
+
+	<button type="button" id="send">
+		Send Follow-up
+	</button>
+
+</section>
 </body>
 </html>
