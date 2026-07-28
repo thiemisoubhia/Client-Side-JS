@@ -40,7 +40,7 @@ sendMessageBtn.addEventListener("click", sendChatMessage);
 checkUsageBtn.addEventListener("click", checkTokenUsage);
 
 /* STEP 7: Create the checkTokenUsage function */
-function checkTokenUsage(){
+function checkTokenUsage() {
     // STEP 7a: Create complete url
     let url = `${baseURL}/api/claude/status`;
     // STEP 7b: Request status from the API
@@ -57,7 +57,7 @@ function checkTokenUsage(){
     })
 }
 
-function displayStatus(json){
+function displayStatus(json) {
     console.log(json);
 
     let pre = document.createElement("pre"); // <pre></pre>
@@ -74,7 +74,7 @@ function displayStatus(json){
 }
 
 /* STEP 8: Create the sendChatMessage function for Claude API interaction */
-function sendChatMessage(){
+function sendChatMessage() {
     // STEP 8a: Get form values
     let userInput = userMessage.value;
 
@@ -84,10 +84,13 @@ function sendChatMessage(){
     // STEP 8c: Prepare the request body according to Claude API format
     let requestBody = {
         max_tokens: maxTokens,
-        messages: [{ content: userInput, role: 'user' }],
+        messages: conversationHistory.push({
+            role: "user",
+            content: userInput
+        }),
         model: 'claude-sonnet-5',
     }
-    
+
     // STEP 8d: Make the API request using fetch()
     fetch(url, {
         method: "POST",
@@ -101,11 +104,20 @@ function sendChatMessage(){
         return response.json();
     }).then(json => {
         // STEP 8f: Extract the message content from Claude's response
+        let claudeResponse = json.content[0].text;
+        
+        conversationHistory.push({
+            role: "assistant",
+            content: claudeResponse
+        });
+
         displayMessage(json);
+        messageSection.hidden = false;
+
     })
 }
 
-function displayMessage(json){
+function displayMessage(json) {
     console.log(json);
 
     let para = document.createElement("p"); // <p></p>
