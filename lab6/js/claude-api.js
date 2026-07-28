@@ -82,12 +82,15 @@ function sendChatMessage() {
     let url = `${baseURL}/api/claude/messages`;
 
     // STEP 8c: Prepare the request body according to Claude API format
+    conversationHistory.push({
+        role: "user",
+        content: userInput
+    });
+
+
     let requestBody = {
         max_tokens: maxTokens,
-        messages: conversationHistory.push({
-            role: "user",
-            content: userInput
-        }),
+        messages: conversationHistory,
         model: 'claude-sonnet-5',
     }
 
@@ -105,7 +108,7 @@ function sendChatMessage() {
     }).then(json => {
         // STEP 8f: Extract the message content from Claude's response
         let claudeResponse = json.content[0].text;
-        
+
         conversationHistory.push({
             role: "assistant",
             content: claudeResponse
@@ -118,12 +121,85 @@ function sendChatMessage() {
 }
 
 function displayMessage(json) {
-    console.log(json);
 
-    let para = document.createElement("p"); // <p></p>
-    para.textContent = `Assistant: ${json.content[0].text}`;
+    let para = document.createElement("p");
+
+    para.classList.add("assistant-message");
+
+    para.textContent =
+        `Claude: ${json.content[0].text}`;
+
+
     results.appendChild(para);
+
 }
+
+function sendFollowUpMessage() {
+
+    let followUpText = followUpInput.value;
+
+
+    conversationHistory.push({
+        role: "user",
+        content: followUpText
+    });
+
+
+    let url = `${baseURL}/api/claude/messages`;
+
+
+    let requestBody = {
+        max_tokens: maxTokens,
+        messages: conversationHistory,
+        model: 'claude-sonnet-5',
+    };
+
+
+    fetch(url, {
+        method: "POST",
+
+        headers: {
+            "X-Student-API-Key": studentApiKey,
+            "Content-Type": "application/json"
+        },
+
+        body: JSON.stringify(requestBody)
+
+    })
+        .then(response => response.json())
+
+        .then(json => {
+
+            let claudeResponse = json.content[0].text;
+
+
+            conversationHistory.push({
+                role: "assistant",
+                content: claudeResponse
+            });
+
+
+            displayFollowUpMessage(claudeResponse);
+
+        });
+
+}
+
+function displayFollowUpMessage(message) {
+
+    let div = document.createElement("p");
+
+    div.classList.add("follow-response");
+
+    div.textContent =
+        `Claude Follow-up: ${message}`;
+
+
+    results.appendChild(div);
+
+}
+
+sendFollowUpBtn.addEventListener("click", sendFollowUpMessage);
 
 // LAB EXTENSION: Multi-Message Chat Feature
 // After completing the basic implementation, extend the functionality to support conversation history:
